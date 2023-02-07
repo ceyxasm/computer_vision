@@ -38,12 +38,12 @@ d. <strong> Limitations </strong>
 * For the same reason, the algorithm is very sensitive to noise. Anything that is not an exact copy will be shown as difference.
 * Minor differences may get lost while thresholding.
 
-###### <strong>Question 1- Distance in images-1</strong>
+###### <strong>Question 2- Distance in images-1</strong>
 a. Implementation can be found in the .ipynb file attached <br>
 * The algorithm calculates mid-point of the bounding box given by the OCR. <br>
 * These coordinates are then used to calculate the distance. <br>
 * Each state is given a numerical code. <br>
-	![result](Assignment-1/Problem-2/distance.png)
+	![result](Assignment-1/Problem-2/distance.png)<br>
 b. Limitations <br>
 * The way algorithm calculates distance is by calculating the mid-points of the co-ordinates of the bounding box of state-names. Therefore, algorithm is sensitive to font of text and orientation chosen.
 
@@ -63,8 +63,9 @@ b. Algorithm
 ```py
 let clock_img
 let clean_img = fine_line_purge( clock_img, thickness)
-# fine_line_purge() erases all the lines whose thickness is less than 
-# 'thickness' pixels. This is do so as to remove the second's needle
+# fine_line_purge() erases all the lines whose thickness is less 
+# than 'thickness' pixels. This is do so as to remove the 
+# second's needle
 
 let clk_gray = gray(clean_img)
 binary -> clk_gray image is thresholded at pixel value 128
