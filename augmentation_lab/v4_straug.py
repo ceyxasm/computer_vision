@@ -13,7 +13,7 @@ from straug.camera import Contrast, Brightness, JpegCompression, Pixelate
 from straug.geometry import Rotate, Perspective, Shrink, TranslateX, TranslateY
 from straug.noise import GaussianNoise, ShotNoise, ImpulseNoise, SpeckleNoise
 from straug.pattern import VGrid, HGrid, Grid, RectGrid, EllipseGrid
-from straug.process import Posterize, Solarize, Invert, Equalize, AutoContrast, Sharpness, Color
+from straug.process import Posterize, Solarize, Invert,  AutoContrast, Sharpness, Color
 from straug.warp import Curve, Distort, Stretch
 from straug.weather import Fog, Snow, Frost, Rain, Shadow
 
@@ -37,12 +37,12 @@ if __name__ == '__main__':
     ops.extend([Contrast(rng), Brightness(rng), JpegCompression(rng) ])
     ops.extend([Fog(rng), Frost(rng), Rain(rng), Shadow(rng)])
     ops.extend(
-        [Posterize(rng), Invert(rng), Equalize(rng), AutoContrast(rng), Color(rng)])
+        [Posterize(rng), Invert(rng), AutoContrast(rng), Color(rng)])
     
     for image in os.listdir(opt.image_folder):
         img= Image.open(os.path.join(opt.image_folder, image))
         for op in ops:
-            for mag in range(-1, 2):
+            for mag in range(-2, 3, 4):
                 sub_dir_name = type(op).__name__ + "-" + str(mag) ##folder name basically
                 sub_dir_path= os.path.join(opt.results, sub_dir_name)
                 os.makedirs(sub_dir_path, exist_ok=True)
