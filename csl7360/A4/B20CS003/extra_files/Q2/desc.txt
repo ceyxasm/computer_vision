@@ -1,0 +1,1 @@
+hist binary is a dictionary with training loss, validation accuracy and perplexity scores
